@@ -1,85 +1,105 @@
 <template>
     <div>
-        <h2 class="text-center text-primary">Quản lý sản phẩm</h2>
+        <h2 class="text-center text-primary mb-4">Quản lý sản phẩm</h2>
 
-        <form @submit.prevent="addProduct" class="mb-3">
-            <div class="row">
-                <div class="col-lg-4">
-                    <input v-model="newProduct.name" placeholder="Tên sản phẩm" class="form-control" />
-                </div>
-                <div class="col-lg-4">
-                    <input v-model.number="newProduct.price" placeholder="Giá" type="number" class="form-control" />
-                </div>
-                <div class="col-lg-4">
-                    <input v-model="newProduct.image" placeholder="Link hình ảnh" class="form-control" />
-                </div>
+        <!-- Thanh tìm kiếm -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <input v-model="searchQuery" type="text" class="form-control w-50"
+                placeholder="Nhập tên sản phẩm để tìm..." />
+            <div>
+                <button @click="resetSearch" class="btn btn-secondary me-2">Reset</button>
+                <router-link to="/add-product" class="btn btn-success">Thêm sản phẩm</router-link>
             </div>
+        </div>
 
-            <button type="submit" class="btn btn-success mt-3">Thêm</button>
-        </form>
-
-        <table class="table table-striped table-hover align-middle text-center">
+        <!-- Bảng sản phẩm -->
+        <table class="table table-striped table-hover text-center align-middle">
             <thead class="table-primary">
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Tên</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col">Hình ảnh</th>
-                    <th scope="col">Hành động</th>
+                    <th>ID</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
+                    <th>Hình ảnh</th>
+                    <th>Hành động</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="p in products" :key="p.id">
+                <tr v-for="p in filteredProducts" :key="p.id">
                     <td>{{ p.id }}</td>
                     <td>{{ p.name }}</td>
                     <td>{{ p.price.toLocaleString() }} ₫</td>
                     <td>
-                        <img :src="p.image" alt="Sản phẩm" class="img-thumbnail"
-                            style="width:80px; height:80px; object-fit:cover;">
+                        <img :src="p.image" alt="Hình" class="img-thumbnail"
+                            style="width:80px;height:80px;object-fit:cover;" />
                     </td>
                     <td>
-                        <button class="btn btn-danger btn-sm" @click="deleteProduct(p.id)">
-                            <i class="bi bi-trash"></i> Xóa
-                        </button>
+                        <router-link :to="`/edit-product/${p.id}`" class="btn btn-warning btn-sm me-2">
+                            Sửa
+                        </router-link>
+                        <button class="btn btn-danger btn-sm" @click="deleteProduct(p.id)">Xóa</button>
+                    </td>
+                </tr>
+
+                <!-- Khi không có kết quả -->
+                <tr v-if="filteredProducts.length === 0">
+                    <td colspan="5" class="text-muted text-center">
+                        Không tìm thấy sản phẩm nào phù hợp
                     </td>
                 </tr>
             </tbody>
         </table>
-
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import { ref, computed, onMounted } from "vue";
+import axios from "axios";
 
-const products = ref([])
-const newProduct = ref({ name: '', price: 0, image: '' })
+const products = ref([]);
 
+// Lấy danh sách sản phẩm từ json-server
 const fetchProducts = async () => {
-    const res = await axios.get('http://localhost:3000/products')
-    products.value = res.data
-}
-
-const addProduct = async () => {
-    await axios.post('http://localhost:3000/products', newProduct.value)
-    newProduct.value = { name: '', price: 0, image: '' }
-    fetchProducts()
-}
-
-const deleteProduct = async (id) => {
-    const confirmDelete = confirm("Bạn có chắc muốn xóa sản phẩm này không?");
-    if (!confirmDelete) return;
-
     try {
-        await axios.delete(`http://localhost:3000/products/${id}`);
-        alert("Xóa sản phẩm thành công!");
-        fetchProducts();
+        const res = await axios.get("http://localhost:3000/products");
+        products.value = res.data;
     } catch (error) {
-        console.error("Lỗi khi xóa sản phẩm:", error);
-        alert("Đã xảy ra lỗi khi xóa sản phẩm!");
+        console.error("Lỗi khi tải sản phẩm:", error);
     }
 };
 
-onMounted(fetchProducts)
+onMounted(fetchProducts);
+
+// Xóa sản phẩm
+const deleteProduct = async (id) => {
+    if (confirm("Bạn có chắc muốn xóa sản phẩm này không?")) {
+        await axios.delete(`http://localhost:3000/products/${id}`);
+        fetchProducts();
+    }
+};
+
+// @click(deleteProduct(id))
+
+const searchQuery = ref("");
+// tìm kiếm
+const filteredProducts = computed(() => {
+    const query = searchQuery.value.trim().toLowerCase();
+    if (!query) return products.value;
+    return products.value.filter((p) =>
+        p.name.toLowerCase().includes(query)
+    );
+});
+
+// Reset tìm kiếm
+const resetSearch = () => {
+    searchQuery.value = "";
+};
+
+
 </script>
+
+<style scoped>
+.table th,
+.table td {
+    vertical-align: middle;
+}
+</style>

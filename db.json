@@ -1,22 +1,66 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "0d0c",
+      "name": "Bộ thể thao nam 1",
+      "price": 50,
+      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760514475/rfvi8qy18qol9rwyo3uv.jpg"
+    },
+    {
+      "id": "e8c8",
+      "name": "pp",
+      "price": 99,
+      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760620903/u3tdsj6okhzn5sx7cwjd.jpg"
+    },
+    {
+      "id": "9168",
       "name": "Áo thun",
-      "price": 120000,
-      "image": "../src/assets/images/ao-thun.jpg"
+      "price": 50,
+      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760626311/y6dpeq1noqm4hsn7wncp.jpg"
     },
     {
-      "id": 2,
-      "name": "Quần jean",
-      "price": 250000,
-      "image": "../src/assets/images/quan-jean.jpg"
+      "id": "98d8",
+      "name": "Giày addidas",
+      "price": 99,
+      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760626331/okqrfnficazqyhuqikjk.jpg"
     },
     {
-      "id": 2,
-      "name": "Giày sneaker",
-      "price": 500000,
-      "image": "../src/assets/images/giay.jpg"
+      "id": "01a9",
+      "name": "hghg",
+      "price": 33,
+      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760670984/raexoxmwpmfpv0xdljxu.jpg"
+    },
+    {
+      "id": "2b81",
+      "name": "name",
+      "price": 12,
+      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760950496/femxrwvxwuiyfp3i1oam.webp"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "fullname": "Quản trị viên",
+      "role": "admin",
+      "email": "admin@fpt.edu.vn"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "123",
+      "fullname": "Nguyễn Văn A",
+      "role": "user",
+      "email": "user1@gmail.com"
+    },
+    {
+      "id": "3",
+      "username": "user2",
+      "password": "123",
+      "fullname": "Trần Thị B",
+      "role": "user",
+      "email": "user2@gmail.com"
     }
   ]
 }

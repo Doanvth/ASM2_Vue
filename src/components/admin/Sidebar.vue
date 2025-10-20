@@ -13,6 +13,9 @@
             <router-link to="/admin/products" class="nav-link text-white mb-2" active-class="active-link">
                 <i class="bi bi-box-seam me-2"></i> Quản lý sản phẩm
             </router-link>
+            <router-link to="/user" class="nav-link text-white mb-2" active-class="active-link">
+                <i class="bi bi-box-seam me-2"></i> Quản lý người dùng
+            </router-link>
         </nav>
 
         <!-- Nút đăng xuất -->
