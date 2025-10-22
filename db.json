@@ -1,40 +1,32 @@
 {
   "products": [
     {
-      "id": "0d0c",
-      "name": "Bộ thể thao nam 1",
-      "price": 50,
-      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760514475/rfvi8qy18qol9rwyo3uv.jpg"
+      "id": "df42",
+      "name": "Áo cặp Adidass",
+      "price": 229,
+      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1761102597/mxxe04ypiq8mtrlwjgzt.jpg",
+      "createdAt": "2025-10-22T03:09:59.882Z"
     },
     {
-      "id": "e8c8",
-      "name": "pp",
-      "price": 99,
-      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760620903/u3tdsj6okhzn5sx7cwjd.jpg"
+      "id": "80cd",
+      "name": "Áo thun Adidass Cam",
+      "price": 199,
+      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1761102975/xs0gs3psddiprgdycu6b.webp",
+      "createdAt": "2025-10-22T03:16:32.944Z"
     },
     {
-      "id": "9168",
-      "name": "Áo thun",
-      "price": 50,
-      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760626311/y6dpeq1noqm4hsn7wncp.jpg"
+      "id": "09ad",
+      "name": "Giày adidas Ubersonic-4-4",
+      "price": 999,
+      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1761103004/nxwr6j7slr8synmugbol.jpg",
+      "createdAt": "2025-10-22T03:16:57.822Z"
     },
     {
-      "id": "98d8",
-      "name": "Giày addidas",
-      "price": 99,
-      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760626331/okqrfnficazqyhuqikjk.jpg"
-    },
-    {
-      "id": "01a9",
-      "name": "hghg",
-      "price": 33,
-      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760670984/raexoxmwpmfpv0xdljxu.jpg"
-    },
-    {
-      "id": "2b81",
-      "name": "name",
-      "price": 12,
-      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1760950496/femxrwvxwuiyfp3i1oam.webp"
+      "name": "áo khoác đen adidass",
+      "price": 899,
+      "image": "https://res.cloudinary.com/dqqtiwfnw/image/upload/v1761112807/jmg4nzmyp1vdrvgyjcrm.jpg",
+      "createdAt": "2025-10-22T03:33:44.482Z",
+      "id": "8ef5"
     }
   ],
   "users": [
